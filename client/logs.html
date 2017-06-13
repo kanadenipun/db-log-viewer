@@ -1,0 +1,41 @@
+<template name="logs">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    {{#each showLogs}}
+        {{printLog}}
+        <!--<ul>-->
+            <!--<li><b>CSTag</b>: {{CSTag}}, <b>ScenarioName:</b> {{scenarioName}}, <b>componentName:</b> {{componentName}}, <b>usageContext:</b> {{usageContext}}, <b>itemIndex:</b> {{itemIndex}}, <b>url:</b> {{url}}, <b>metaData:</b> {{metaData}}</li>-->
+        <!--</ul>-->
+    {{else}}
+        <h3>Sorry, seems like no logs are available. !! </h3>
+    {{/each}}
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Clear All Logs</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you Sure? This will delete all logs !!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-danger clear-logs" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer class="footer navbar-fixed-bottom">
+
+                    <div class="col-md-3 col-md-offset-9">
+                       <button class="btn btn-danger pull-right" data-toggle="modal" data-target="#myModal">Clear Logs</button>
+                    </div>
+
+        </footer>
+
+    </div>
+</template>
