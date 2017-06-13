@@ -20,8 +20,11 @@ Router.map(function () {
                 requestbody.forEach(function(entry){
                     BffLogs.insert(entry);
                 });
+                this.response.setHeader("Content-Type", "application/json");
+                this.response.setHeader("Access-Control-Allow-Origin", "*");
+                this.response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
                 this.response.statusCode = 200;
-                this.response.end('success');
+                this.response.end('{ \"status\": \"200\", \"message\": \"Success\" }');
             }
         });
 });
